@@ -113,7 +113,7 @@ export default function ApixTimeSeriesChart({ series = [], timeframe = 30, onTim
 
         {/* Timeframe Selector */}
         <div className="flex items-center bg-aviaWhite border border-aviaPeachSoft/80 rounded-none p-0.5">
-          {[7, 30, 90].map((d) => (
+          {[{d: 1, label: 'Daily'}, {d: 7, label: 'Weekly'}, {d: 30, label: 'Monthly'}].map(({d, label}) => (
             <button
               key={d}
               onClick={() => onTimeframeChange && onTimeframeChange(d)}
@@ -123,7 +123,7 @@ export default function ApixTimeSeriesChart({ series = [], timeframe = 30, onTim
                   : 'text-aviaMuted hover:text-aviaCharcoal'
               }`}
             >
-              {d}D
+              {label}
             </button>
           ))}
         </div>

@@ -800,8 +800,8 @@ export default function ExecutiveOverviewView() {
           </div>
         ) : (
           <>
-            {/* Left 2 Cols: 90-Day High-Frequency Time Series */}
-            <div className="lg:col-span-2 avia-card p-5 space-y-4">
+            {/* 90-Day High-Frequency Time Series */}
+            <div className="col-span-full avia-card p-5 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-aviaPeachSoft pb-3">
                 <div>
                   <h3 className="text-sm font-extrabold text-aviaCharcoal font-heading flex items-center gap-2">
@@ -822,35 +822,6 @@ export default function ExecutiveOverviewView() {
                 timeframe={filters.timeframeDays}
                 onTimeframeChange={(d) => updateFilter('timeframeDays', d)}
               />
-            </div>
-
-            {/* Right 1 Col: Advance Booking Horizon Curves */}
-            <div className="avia-card p-5 space-y-4 flex flex-col justify-between">
-              <div>
-                <div className="border-b border-aviaPeachSoft pb-3">
-                  <h3 className="text-sm font-extrabold text-aviaCharcoal font-heading flex items-center gap-2">
-                    <i className="fa-solid fa-clock-rotate-left text-aviaCoral"></i>
-                    <span>Advance Purchase Horizon Curves</span>
-                  </h3>
-                  <p className="text-[11px] text-aviaMuted">
-                    Average Airfare by Booking Lead Time (T+1 to T+45)
-                  </p>
-                </div>
-
-                <div className="pt-3">
-                  <LeadTimeCurveChart curves={leadCurves} />
-                </div>
-              </div>
-
-              <div className="p-3 rounded-none bg-aviaWhite/80 border border-aviaPeachSoft text-[11px] text-aviaCharcoal space-y-1">
-                <div className="font-bold text-aviaCharcoal flex items-center gap-1.5">
-                  <i className="fa-solid fa-lightbulb text-amber-400"></i>
-                  <span>Horizon Insight:</span>
-                </div>
-                <p className="text-[10px] text-aviaMuted leading-relaxed">
-                  Yield premiums vary by lead time horizon. Curve populated dynamically from live pricing.
-                </p>
-              </div>
             </div>
           </>
         )}
@@ -913,153 +884,7 @@ export default function ExecutiveOverviewView() {
         )}
       </div>
 
-      {/* ============================================================ */}
-      {/* 04 - INSIGHTS & INTELLIGENCE                                 */}
-      {/* ============================================================ */}
-      <div className="pt-12 pb-4 border-b border-aviaPeachSoft/50 mb-6">
-        <div className="text-[10px] font-bold text-aviaMuted uppercase tracking-widest mb-1">05 — Insights & Intelligence</div>
-        <h2 className="text-2xl font-extrabold text-aviaCharcoal font-heading">Automated Findings & Top Movers</h2>
-      </div>
-
-      {/* 3. Top Route Movers & Quick Policy Intelligence */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
-        {datasetStatus === 'AWAITING_FRESH_DATA' ? (
-          <div className="col-span-full py-12 text-center bg-aviaWhite border border-aviaPeachSoft shadow-sm">
-             <i className="fa-solid fa-robot text-4xl text-aviaMuted mb-3 block"></i>
-             <p className="font-bold text-aviaCharcoal text-sm">Intelligence Engine Idle</p>
-             <p className="text-xs text-aviaMuted">Run a web acquisition job to generate insights.</p>
-          </div>
-        ) : (
-          <>
-            {/* Left 2 Cols: Top Route Movers Table */}
-            <div className="lg:col-span-2 avia-card p-5 space-y-4">
-              <div className="flex items-center justify-between border-b border-aviaPeachSoft pb-3">
-                <div>
-                  <h3 className="text-sm font-extrabold text-aviaCharcoal font-heading flex items-center gap-2">
-                    <i className="fa-solid fa-arrow-trend-up text-emerald-400"></i>
-                    <span>Top Route Movers & Index Contributors Today</span>
-                  </h3>
-                  <p className="text-[11px] text-aviaMuted">
-                    High-volume corridors exhibiting significant daily fare deviation
-                  </p>
-                </div>
-                <span className="text-[11px] font-mono text-aviaMuted">{topMovers.length} Active Alert Sectors</span>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-xs text-left">
-                  <thead>
-                    <tr className="border-b border-aviaPeachSoft text-aviaMuted font-semibold uppercase text-[10px]">
-                      <th className="py-2.5 px-3">Route Corridor</th>
-                      <th className="py-2.5 px-3">Index Contribution</th>
-                      <th className="py-2.5 px-3">24h Variance</th>
-                      <th className="py-2.5 px-3">Status</th>
-                      <th className="py-2.5 px-3">Primary Driver</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/60 font-sans">
-                    {topMovers.map((m) => {
-                      const isPositive = m.change_pct > 0;
-                      return (
-                        <tr key={m.route} className="hover:bg-aviaWhite/40 transition-colors">
-                          <td className="py-2.5 px-3">
-                            <div className="font-bold text-aviaCharcoal font-mono">{m.route}</div>
-                            <div className="text-[10px] text-aviaMuted">{m.name}</div>
-                          </td>
-                          <td className="py-2.5 px-3 font-mono font-bold">
-                            <span className={isPositive ? 'text-rose-400' : 'text-emerald-400'}>
-                              {isPositive ? '+' : ''}{m.apix_contrib} pts
-                            </span>
-                          </td>
-                          <td className="py-2.5 px-3 font-mono font-semibold">
-                            <span className={isPositive ? 'text-rose-400' : 'text-emerald-400'}>
-                              {isPositive ? '+' : ''}{m.change_pct}%
-                            </span>
-                          </td>
-                          <td className="py-2.5 px-3">
-                            <span
-                              className={`px-2 py-0.5 rounded-none text-[10px] font-bold ${
-                                m.status === 'Surge'
-                                  ? 'bg-rose-950/80 text-rose-300 border border-rose-500/40'
-                                  : m.status === 'Rising'
-                                  ? 'bg-amber-950/80 text-amber-300 border border-amber-500/40'
-                                  : m.status === 'Declining'
-                                  ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/40'
-                                  : 'bg-aviaPeachLight text-aviaCharcoal'
-                              }`}
-                            >
-                              {m.status}
-                            </span>
-                          </td>
-                          <td className="py-2.5 px-3 text-aviaCharcoal text-[11px]">
-                            {m.reason}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* Right 1 Col: Quick Intelligence Cards */}
-            <div className="avia-card p-5 space-y-3">
-              <div className="border-b border-aviaPeachSoft pb-3">
-                <h3 className="text-sm font-extrabold text-aviaCharcoal font-heading flex items-center gap-2">
-                  <i className="fa-solid fa-brain text-aviaCoral"></i>
-                  <span>AIxplain Policy Intelligence</span>
-                </h3>
-                <p className="text-[11px] text-aviaMuted">
-                  Automated high-frequency economic takeaways
-                </p>
-              </div>
-
-              <div className="space-y-2.5 text-xs">
-                {/* Intel 1 */}
-                <div className="p-3 rounded-none bg-aviaWhite/80 border border-aviaPeachSoft space-y-1">
-                  <div className="text-[10px] font-bold text-rose-400 uppercase">
-                    Highest Rising Sector
-                  </div>
-                  <div className="font-bold text-aviaCharcoal">
-                    {intelligence.highest_rising_route?.route} (+{intelligence.highest_rising_route?.surge_percent}%)
-                  </div>
-                  <div className="text-[10px] text-aviaMuted">
-                    Avg Fare: ₹{intelligence.highest_rising_route?.current_avg_fare?.toLocaleString()} • {intelligence.highest_rising_route?.driver}
-                  </div>
-                </div>
-
-                {/* Intel 2 */}
-                <div className="p-3 rounded-none bg-aviaWhite/80 border border-aviaPeachSoft space-y-1">
-                  <div className="text-[10px] font-bold text-emerald-400 uppercase">
-                    Optimal Booking Horizon
-                  </div>
-                  <div className="font-bold text-aviaCharcoal">
-                    {intelligence.cheapest_booking_window?.window}
-                  </div>
-                  <div className="text-[10px] text-aviaMuted">
-                    {intelligence.cheapest_booking_window?.savings_vs_t1}% savings vs emergency T+1 booking.
-                  </div>
-                </div>
-
-                {/* Intel 3 */}
-                <div className="p-3 rounded-none bg-aviaWhite/80 border border-aviaPeachSoft space-y-1">
-                  <div className="text-[10px] font-bold text-indigo-400 uppercase">
-                    Affordability Signal
-                  </div>
-                  <div className="font-bold text-aviaCharcoal text-[11px]">
-                    {intelligence.affordability_signal?.status} ({intelligence.affordability_signal?.route})
-                  </div>
-                  <div className="text-[10px] text-aviaMuted">
-                    Fare Change: +{intelligence.affordability_signal?.fare_increase_pct}% • {intelligence.affordability_signal?.recommendation}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-
-      {/* ============================================================ */}
+{/* ============================================================ */}
       {/* 05 - DATA SOURCES & SYSTEM HEALTH                            */}
       {/* ============================================================ */}
       <div className="pt-12 pb-4 border-b border-aviaPeachSoft/50 mb-6">
@@ -1076,59 +901,8 @@ export default function ExecutiveOverviewView() {
           </div>
         ) : (
           <>
-            {/* Source Health Table */}
-            <div className="lg:col-span-2 avia-card p-0 overflow-hidden border border-aviaPeachSoft">
-              <div className="p-4 border-b border-aviaPeachSoft bg-aviaPeachLight/30 flex justify-between items-center">
-                <h3 className="font-heading font-extrabold text-aviaCharcoal text-sm">Active Scraper Nodes</h3>
-                <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 px-2 py-0.5 border border-emerald-200">
-                  {overviewData?.crawler_status?.overall_health || "Optimal"}
-                </span>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs">
-                  <thead className="bg-aviaPeachLight/10 text-aviaMuted uppercase text-[10px] border-b border-aviaPeachSoft">
-                    <tr>
-                      <th className="px-4 py-2 font-bold">Source Portal</th>
-                      <th className="px-4 py-2 font-bold">Status</th>
-                      <th className="px-4 py-2 font-bold">Last Updated</th>
-                      <th className="px-4 py-2 font-bold text-right">Records Sealed</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-aviaPeachSoft/50">
-                    {overviewData?.crawler_status?.sources?.map((src, i) => {
-                      let statusColor = "text-emerald-500 bg-emerald-50 border-emerald-200";
-                      if (src.status === "Warning") statusColor = "text-amber-500 bg-amber-50 border-amber-200";
-                      else if (src.status === "Failed") statusColor = "text-rose-500 bg-rose-50 border-rose-200";
-
-                      return (
-                        <tr key={i} className="hover:bg-aviaPeachLight/10 transition-colors">
-                          <td className="px-4 py-3 font-medium text-aviaCharcoal">
-                            <div className="flex items-center gap-2">
-                              <i className="fa-solid fa-server text-aviaMuted text-[10px]"></i>
-                              {src.name}
-                            </div>
-                          </td>
-                          <td className="px-4 py-3">
-                            <span className={`px-2 py-0.5 text-[9px] font-bold uppercase border ${statusColor}`}>
-                              {src.status}
-                            </span>
-                          </td>
-                          <td className="px-4 py-3 font-mono text-aviaMuted">
-                            {src.last_scrape}
-                          </td>
-                          <td className="px-4 py-3 font-mono text-right font-medium text-aviaCharcoal">
-                            {src.records?.toLocaleString() || 0}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
             {/* System Health KPIs */}
-            <div className="space-y-4">
+            <div className="col-span-full grid grid-cols-1 md:grid-cols-2 gap-4">
               <KpiCard
                 title="Data Freshness SLA"
                 subtitle="Network Polling Latency"

@@ -848,6 +848,18 @@ def get_rbi_macro_feed():
     obs = FlightObservation.query.filter_by(availability_status="OBSERVED").all()
     fares = [o.total_fare for o in obs if o.total_fare]
     avg_fare = sum(fares) / len(fares) if fares else 0
+    
+    flights_data = [
+        {
+            "id": o.id,
+            "origin": o.origin,
+            "destination": o.destination,
+            "travel_date": o.travel_date,
+            "carrier": o.carrier,
+            "total_fare": o.total_fare,
+            "scraped_at": o.scraped_at.isoformat() if o.scraped_at else None
+        } for o in obs
+    ]
 
     return jsonify({
         "status": "success",
@@ -864,7 +876,8 @@ def get_rbi_macro_feed():
             "estimated_fuel_cost_share_pct": 38.5,
             "apix_correlation_with_atf": 0.74,
             "current_avg_observed_fare": round(avg_fare, 2)
-        }
+        },
+        "flights": flights_data
     })
 
 
@@ -877,6 +890,18 @@ def get_nso_cpi_feed():
     fares = [o.total_fare for o in obs if o.total_fare]
     avg_fare = sum(fares) / len(fares) if fares else 0
     apix = round((avg_fare / 5000.0) * 100, 4) if avg_fare else 0
+
+    flights_data = [
+        {
+            "id": o.id,
+            "origin": o.origin,
+            "destination": o.destination,
+            "travel_date": o.travel_date,
+            "carrier": o.carrier,
+            "total_fare": o.total_fare,
+            "scraped_at": o.scraped_at.isoformat() if o.scraped_at else None
+        } for o in obs
+    ]
 
     return jsonify({
         "status": "success",
@@ -893,7 +918,8 @@ def get_nso_cpi_feed():
             "apix_to_transport_cpi_ratio": round(apix / 121.3, 4) if apix else 0,
             "recommended_cpi_adjustment_pts": round((apix - 100) * 0.0046, 4) if apix else 0,
             "total_observations_used": len(obs)
-        }
+        },
+        "flights": flights_data
     })
 
 

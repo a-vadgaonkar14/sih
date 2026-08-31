@@ -1,0 +1,247 @@
+/* 
+ * AVIA (Airfare Variation & Index Analytics)
+ * Premium Analytics Platform Design System
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-app: #FFF9F5;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FBEDE5;
+  --border-card: #FCE1D2;
+  --border-card-strong: #FF7055;
+  
+  --primary-coral: #FF7055;
+  --primary-coral-deep: #E85D43;
+  --accent-peach: #FCE1D2;
+  --accent-peach-light: #FBEDE5;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  
+  --text-main: #302522;
+  --text-muted: #6F625D;
+  --text-dim: #94a3b8;
+  
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom Scrollbar - Light Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: #E5D5CD;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-coral);
+}
+
+/* Cards */
+.avia-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(48, 37, 34, 0.05), 0 2px 4px -1px rgba(48, 37, 34, 0.03);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--text-main);
+}
+
+.avia-card:hover {
+  border-color: rgba(255, 112, 85, 0.4);
+}
+
+.avia-card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(48, 37, 34, 0.08), 0 4px 6px -2px rgba(48, 37, 34, 0.04);
+}
+
+/* Status Indicator Pulse */
+.pulse-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.6;
+  animation: ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes ripple {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* SVG Chart Transitions */
+.chart-path-anim {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawPath 1.6s ease-out forwards;
+}
+@keyframes drawPath {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Badge Styles */
+.badge-gov {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Custom Table Styles - Light Theme */
+.avia-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.avia-table th {
+  background: var(--bg-app);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--border-card);
+  text-align: left;
+}
+.avia-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--accent-peach-light);
+  font-size: 0.84rem;
+  color: var(--text-main);
+}
+.avia-table tr:hover td {
+  background: var(--accent-peach-light);
+}
+
+/* Modal and Slide-over Drawer Animations */
+.drawer-backdrop {
+  background: rgba(255, 249, 245, 0.85);
+  backdrop-filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+.drawer-content {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Stepper Spotlight in Demo Mode */
+.demo-spotlight-active {
+  position: relative;
+  z-index: 40;
+  box-shadow: 0 0 0 4px var(--primary-coral), 0 0 35px rgba(255, 112, 85, 0.25) !important;
+  border-color: var(--primary-coral) !important;
+  background-color: var(--bg-card) !important;
+}
+
+/* Custom Range Slider */
+input[type=range] {
+  -webkit-appearance: none;
+  background: var(--border-card);
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary-coral);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 112, 85, 0.4);
+  border: 2px solid var(--bg-card);
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+/* Tooltip container - Light Theme */
+.avia-tooltip {
+  position: relative;
+}
+.avia-tooltip:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-main);
+  color: var(--bg-card);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  border: 1px solid var(--text-main);
+  box-shadow: 0 10px 25px -5px rgba(48, 37, 34, 0.2);
+  z-index: 999;
+  pointer-events: none;
+}
+
+/* Print Styling */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .no-print, header, aside, #demoStepperBar, .nav-actions {
+    display: none !important;
+  }
+  .avia-card {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+}

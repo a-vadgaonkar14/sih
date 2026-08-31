@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-app: #FDFBF7;
+  --bg-card: #FFFFFF;
+  --border-card: #FCE1D2;
+  
+  --avia-coral: #FF7055;
+  --avia-coral-deep: #E85D43;
+  --avia-charcoal: #302522;
+  --avia-muted: #6F625D;
+
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-app);
+  color: var(--avia-charcoal);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E85D43;
+}
+
+/* Background Atmospheric Glow */
+.bg-glow-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  will-change: transform;
+}
+.glow-orb-1 {
+  width: 650px;
+  height: 650px;
+  background: #FF7055;
+  top: -150px;
+  right: -100px;
+  animation: pulseSlow 18s ease-in-out infinite alternate;
+}
+.glow-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: #E85D43;
+  bottom: 50px;
+  left: -150px;
+  animation: pulseSlow 22s ease-in-out infinite alternate;
+}
+.glow-orb-3 {
+  width: 400px;
+  height: 400px;
+  background: #E85D43;
+  top: 40%;
+  left: 35%;
+  opacity: 0.08;
+  animation: pulseSlow 25s ease-in-out infinite alternate;
+}
+
+/* Cards & Surface Treatments */
+.avia-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px -2px rgba(48, 37, 34, 0.05);
+  transition: all 0.2s ease;
+}
+
+.avia-card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+}
+
+.avia-card-interactive {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.avia-card-interactive:hover {
+  border-color: var(--avia-coral);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(48, 37, 34, 0.08);
+}
+
+/* Status Indicators & Badges */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.6;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.badge-gov {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-verified {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-provisional {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-quarantined {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* Data Table Clean Styles */
+.avia-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.avia-table th {
+  background: rgba(241, 245, 249, 0.9);
+  color: #6F625D;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.avia-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  font-size: 0.8125rem;
+}
+.avia-table tr:hover td {
+  background: rgba(241, 245, 249, 0.6);
+}

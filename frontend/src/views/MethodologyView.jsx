@@ -66,7 +66,7 @@ export default function MethodologyView() {
           </div>
 
           <p className="text-[11px] text-aviaCharcoal leading-relaxed bg-aviaPeachSoft p-3 rounded-md border border-aviaCoral/20">
-            <i className="fa-solid fa-star text-aviaCoral mr-1"></i> Aggregates route strata using DGCA annual passenger volume weights across India's top 50 scheduled domestic air corridors.
+            <i className="fa-solid fa-star text-aviaCoral mr-1"></i> Aggregates route strata using DGCA annual passenger volume weights across India's top scheduled domestic air corridors.
           </p>
         </div>
 
@@ -118,9 +118,9 @@ export default function MethodologyView() {
             <div className="text-[11px] text-aviaCharcoal font-bold font-mono">25% Basket Weight</div>
           </div>
 
-          <div className="p-3 rounded-none bg-aviaWhite/80 border border-aviaCoral/50 bg-sky-50/50 space-y-1">
+          <div className="p-3 rounded-none bg-aviaWhite/80 border border-aviaPeachSoft space-y-1">
             <div className="font-mono text-aviaCoral font-bold">T+15 Days</div>
-            <div className="text-[10px] text-aviaCoral">Primary Benchmark</div>
+            <div className="text-[10px] text-aviaMuted">Primary Benchmark</div>
             <div className="text-[11px] text-aviaCharcoal font-bold font-mono">30% Basket Weight</div>
           </div>
 
@@ -156,7 +156,7 @@ export default function MethodologyView() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mt-4">
-          <div className="p-4 rounded-xl border border-aviaPeachSoft bg-gradient-to-br from-white to-sky-50 shadow-sm flex flex-col gap-2 relative overflow-hidden group">
+          <div className="p-4 rounded-xl border border-aviaPeachSoft bg-gradient-to-br from-white to-orange-50 shadow-sm flex flex-col gap-2 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-2 h-full bg-aviaCoral transition-all group-hover:w-full group-hover:opacity-10 -z-10"></div>
             <div className="flex justify-between items-center">
               <div className="font-bold text-aviaCharcoal flex items-center gap-2"><i className="fa-solid fa-plane text-aviaCoral"></i> IndiGo (6E)</div>

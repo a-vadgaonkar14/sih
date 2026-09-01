@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import LineageDagSvg from '../components/charts/LineageDagSvg';
+import ElasticityCurveChart from '../components/charts/ElasticityCurveChart';
 import * as api from '../api/client';
 
 export default function TrustCenterView() {
@@ -240,6 +241,22 @@ export default function TrustCenterView() {
           </div>
         </div>
 
+      </div>
+
+      {/* 3. Lead-Time Elasticity Curves */}
+      <div className="avia-card p-5 mt-6 space-y-4">
+        <div className="border-b border-aviaPeachSoft pb-3">
+          <h3 className="text-sm font-extrabold text-aviaCharcoal font-heading flex items-center gap-2">
+            <i className="fa-solid fa-chart-area text-amber-500"></i>
+            <span>Lead-Time Elasticity Curve</span>
+          </h3>
+          <p className="text-[11px] text-aviaMuted">
+            Simulated elasticity response modeling customer demand decay over advance booking horizons.
+          </p>
+        </div>
+        <div className="pt-2">
+          <ElasticityCurveChart />
+        </div>
       </div>
 
     </div>

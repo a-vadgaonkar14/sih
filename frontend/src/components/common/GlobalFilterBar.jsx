@@ -1,7 +1,6 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 
-const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const HORIZONS = ['T+1', 'T+7', 'T+15', 'T+30', 'T+45'];
 
 export default function GlobalFilterBar() {
@@ -25,23 +24,6 @@ export default function GlobalFilterBar() {
       {/* Filter Controls Grid */}
       <div className="flex flex-wrap items-center gap-3">
         
-        {/* Day of Week Selector */}
-        <div className="flex items-center gap-1.5 bg-aviaWhite/90 border border-aviaPeachSoft/80 rounded-none px-2.5 py-1.5 text-aviaCharcoal">
-          <i className="fa-solid fa-calendar-day text-aviaCoral"></i>
-          <span className="font-medium text-aviaMuted">Day:</span>
-          <select
-            value={filters.day}
-            onChange={(e) => updateFilter('day', e.target.value)}
-            className="bg-transparent text-aviaCharcoal font-semibold outline-none cursor-pointer text-xs"
-          >
-            {DAYS.map((d) => (
-              <option key={d} value={d} className="bg-aviaWhite">
-                {d}
-              </option>
-            ))}
-          </select>
-        </div>
-
         {/* Fare Type: Base Fare vs Total Fare */}
         <div className="flex items-center gap-1.5 bg-aviaWhite/90 border border-aviaPeachSoft/80 rounded-none px-2.5 py-1.5 text-aviaCharcoal">
           <i className="fa-solid fa-receipt text-aviaCoral"></i>

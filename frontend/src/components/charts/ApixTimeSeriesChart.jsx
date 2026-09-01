@@ -111,22 +111,6 @@ export default function ApixTimeSeriesChart({ series = [], timeframe = 30, onTim
           </button>
         </div>
 
-        {/* Timeframe Selector */}
-        <div className="flex items-center bg-aviaWhite border border-aviaPeachSoft/80 rounded-none p-0.5">
-          {[{d: 1, label: 'Daily'}, {d: 7, label: 'Weekly'}, {d: 30, label: 'Monthly'}].map(({d, label}) => (
-            <button
-              key={d}
-              onClick={() => onTimeframeChange && onTimeframeChange(d)}
-              className={`px-2.5 py-1 rounded-none text-[11px] font-semibold transition-all ${
-                timeframe === d
-                  ? 'bg-aviaCoralDeep text-aviaCharcoal shadow-sm'
-                  : 'text-aviaMuted hover:text-aviaCharcoal'
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
       </div>
 
       {/* SVG Canvas */}

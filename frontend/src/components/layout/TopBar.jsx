@@ -37,32 +37,6 @@ export default function TopBar() {
             <img src="/assets/avia-logo.png" alt="AVIA Logo" className="h-10 w-auto object-contain" />
           </button>
 
-          {/* Live Data Status / Demo Badge */}
-          {datasetStatus === 'SIMULATED' || isSynthetic ? (
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-none bg-amber-500/10 border border-amber-400 text-amber-800 text-xs shadow-xs">
-              <i className="fa-solid fa-flask text-amber-600"></i>
-              <span className="font-bold tracking-wider">SIMULATED DEMO DATA</span>
-              <span className="text-[10px] opacity-90 font-medium border-l border-amber-300 pl-2 ml-1">Values generated for demonstration</span>
-            </div>
-          ) : datasetStatus === 'UNAVAILABLE' ? (
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-none bg-red-50/50 border border-red-200 text-red-800 text-xs shadow-xs">
-              <i className="fa-solid fa-triangle-exclamation text-red-500"></i>
-              <span className="font-semibold tracking-wider">LIVE DATA UNAVAILABLE</span>
-              <span className="text-[10px] opacity-80 font-medium">Compliance block / Acquisition failed</span>
-            </div>
-          ) : datasetStatus === 'PARTIAL_SUCCESS' ? (
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-none bg-orange-50/50 border border-orange-200 text-orange-800 text-xs shadow-xs">
-              <span className="pulse-dot bg-orange-500"></span>
-              <span className="font-semibold tracking-wider">PARTIAL LIVE DATA</span>
-              <span className="text-[10px] opacity-80 font-medium">Some sources blocked</span>
-            </div>
-          ) : (
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-none bg-emerald-50/50 border border-emerald-200 text-emerald-800 text-xs shadow-xs">
-              <span className="pulse-dot bg-emerald-500"></span>
-              <span className="font-bold tracking-wider">LIVE DATA</span>
-              <span className="text-[10px] opacity-80 font-medium">Verified Source Acquisitions</span>
-            </div>
-          )}
         </div>
 
         {/* Controls (Right Side) */}

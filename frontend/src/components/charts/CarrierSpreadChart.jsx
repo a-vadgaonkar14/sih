@@ -78,7 +78,7 @@ export default function CarrierSpreadChart({ carrierData = [], observations = []
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-none" style={{ backgroundColor: c.color }}></span>
                 <span className="font-bold text-aviaCharcoal">{c.name}</span>
-                <span className={`text-[10px] font-mono px-1.5 py-0.2 font-bold border ${c.type === 'FSC' ? 'bg-purple-50 text-purple-800 border-purple-200' : 'bg-sky-50 text-sky-800 border-sky-200'}`}>
+                <span className={`text-[10px] font-mono px-1.5 py-0.2 font-bold border ${c.type === 'FSC' ? 'bg-purple-50 text-purple-800 border-purple-200' : 'bg-orange-50 text-orange-800 border-orange-200'}`}>
                   {c.type}
                 </span>
                 <span className="text-[10px] font-mono text-aviaMuted">

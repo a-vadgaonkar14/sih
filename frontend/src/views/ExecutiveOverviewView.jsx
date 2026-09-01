@@ -479,7 +479,7 @@ export default function ExecutiveOverviewView() {
                     obs.fare_class === 'BUSINESS' || obs.fare_class === 'FIRST'
                       ? 'bg-purple-100 text-purple-900 border-purple-300'
                       : obs.fare_class === 'PREMIUM_ECONOMY'
-                      ? 'bg-sky-100 text-sky-900 border-sky-300'
+                      ? 'bg-orange-100 text-orange-900 border-orange-300'
                       : 'bg-slate-100 text-slate-700 border-slate-300';
 
                   return (

@@ -8,9 +8,7 @@ RUN npm install
 COPY frontend/ ./
 RUN npm run build
 
-# ==========================================
-# Stage 2: Production Python & Playwright Runtime
-# ==========================================
+
 FROM python:3.11-slim
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \

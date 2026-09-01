@@ -17,11 +17,11 @@ export default function TourController() {
 
   return (
     <div className="sticky top-16 z-30 w-full w-full px-4 sm:px-6 mb-4 animate-in slide-in-from-top duration-300">
-      <div className="avia-card p-4 bg-gradient-to-r from-sky-950/90 via-slate-900/90 to-indigo-950/90 border-2 border-aviaCoral shadow-2xl shadow-sky-500/20 flex flex-wrap items-center justify-between gap-4">
+      <div className="avia-card p-4 bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 border-2 border-aviaCoral shadow-2xl shadow-aviaCoral/20 flex flex-wrap items-center justify-between gap-4">
         
         {/* Step Indicator & Info */}
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-none bg-aviaPeachLight0 flex items-center justify-center text-aviaCharcoal font-black text-sm shadow-lg shadow-sky-500/40">
+        <div className="flex items-center gap-4">
+          <div className="w-9 h-9 rounded-none bg-aviaPeachLight0 flex items-center justify-center text-aviaCharcoal font-black text-sm shadow-lg shadow-aviaCoral/40">
             {tourStep + 1}
           </div>
           <div>
@@ -52,10 +52,10 @@ export default function TourController() {
 
           <button
             onClick={nextTourStep}
-            className="py-1.5 px-4 rounded-none bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-aviaCharcoal text-xs font-bold shadow-md shadow-sky-500/30 transition-all flex items-center gap-1.5"
+            className="py-1.5 px-4 rounded-none bg-gradient-to-r from-aviaCoral to-orange-500 hover:from-orange-500 hover:to-aviaCoralDeep text-white text-xs font-bold shadow-md shadow-aviaCoral/30 transition-all flex items-center gap-1.5"
           >
             <span>{tourStep === tourSteps.length - 1 ? 'Finish Tour' : 'Next Step'}</span>
-            <i className="fa-solid fa-arrow-right text-[10px]"></i>
+            <i className="fa-solid fa-arrow-right"></i>
           </button>
 
           <button

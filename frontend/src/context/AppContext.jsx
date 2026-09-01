@@ -28,11 +28,6 @@ export const TOUR_STEPS = [
     target: 'operations',
     title: '5. Scraper SRE & Live Telemetry',
     desc: 'Monitors real-time headless crawler health across domestic airline direct booking portals with live SSE telemetry.'
-  },
-  {
-    target: 'demo',
-    title: '6. SIH Evaluator Guided Speed-Run',
-    desc: 'Comprehensive summary matrix and live scenario testing ready for national policy deployment.'
   }
 ];
 

@@ -13,7 +13,7 @@ export default function ArchitectureModal() {
         {/* Modal Header */}
         <div className="p-5 border-b border-aviaPeachSoft flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-none bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-aviaCharcoal text-base">
+            <div className="w-10 h-10 rounded-none bg-gradient-to-tr from-aviaCoral to-orange-500 flex items-center justify-center text-white text-base shadow-sm">
               <i className="fa-solid fa-sitemap"></i>
             </div>
             <div>
@@ -37,47 +37,152 @@ export default function ArchitectureModal() {
         {/* Modal Body */}
         <div className="p-6 overflow-y-auto space-y-6 text-xs leading-relaxed text-aviaCharcoal">
           
-          {/* Architecture Overview Diagram */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {/* Architecture Overview Diagram Flowchart */}
+          <div className="flex flex-col items-center justify-start gap-6 relative py-4 w-full max-w-3xl mx-auto">
             
-            <div className="avia-card p-4 bg-aviaWhite/80 border-aviaCoral/40 space-y-2">
-              <div className="w-7 h-7 rounded-none bg-aviaPeachLight0/20 text-aviaCoral flex items-center justify-center font-bold text-xs">
-                1
+            {/* Connecting Line (Vertical) */}
+            <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-aviaPeachSoft via-aviaCoral to-orange-500 -z-10 -translate-x-1/2 rounded-full"></div>
+
+            {/* Step 1 */}
+            <div className="avia-card p-0 bg-white border-2 border-aviaCoral/40 w-full shadow-lg relative group hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <div className="bg-aviaCoral/5 p-4 border-b border-aviaCoral/20 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-aviaPeachSoft text-aviaCoral flex items-center justify-center font-bold text-sm shadow-inner">1</div>
+                <div className="font-bold text-aviaCharcoal text-base">Stealth Web Ingestion Layer</div>
               </div>
-              <div className="font-bold text-aviaCharcoal text-sm">Stealth Ingestion</div>
-              <p className="text-[11px] text-aviaMuted">
-                Playwright async crawler operating with stealth evasions across Google Flights and direct airline engines.
-              </p>
+              <div className="p-5">
+                <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-4 text-center">
+                  <div className="p-3 border border-dashed border-slate-300 rounded-lg bg-slate-50 w-full">
+                    <i className="fa-brands fa-python text-2xl text-blue-500 mb-2"></i>
+                    <div className="font-bold text-xs text-slate-700">Playwright Agents</div>
+                    <div className="text-[10px] text-slate-500 mt-1">Cron Job • Evasions</div>
+                  </div>
+                  <i className="fa-solid fa-arrow-right-arrow-left text-aviaCoral text-xl hidden md:block"></i>
+                  <i className="fa-solid fa-arrow-up-arrow-down text-aviaCoral text-xl md:hidden"></i>
+                  <div className="p-3 border border-aviaPeachSoft rounded-lg bg-aviaPeachLight/30 w-full">
+                    <i className="fa-solid fa-plane-departure text-2xl text-aviaCoral mb-2"></i>
+                    <div className="font-bold text-xs text-aviaCharcoal">Airline Booking Engines</div>
+                    <div className="flex gap-1 justify-center mt-2 flex-wrap">
+                      <span className="px-1.5 py-0.5 bg-white border border-slate-200 text-[9px] font-mono rounded">6E</span>
+                      <span className="px-1.5 py-0.5 bg-white border border-slate-200 text-[9px] font-mono rounded">AI</span>
+                      <span className="px-1.5 py-0.5 bg-white border border-slate-200 text-[9px] font-mono rounded">UK</span>
+                      <span className="px-1.5 py-0.5 bg-white border border-slate-200 text-[9px] font-mono rounded">QP</span>
+                      <span className="px-1.5 py-0.5 bg-white border border-slate-200 text-[9px] font-mono rounded">SG</span>
+                    </div>
+                  </div>
+                  <i className="fa-solid fa-arrow-right text-aviaCoral text-xl hidden md:block"></i>
+                  <i className="fa-solid fa-arrow-down text-aviaCoral text-xl md:hidden"></i>
+                  <div className="p-3 border border-slate-200 rounded-lg bg-white shadow-sm w-full">
+                    <i className="fa-solid fa-file-code text-2xl text-amber-500 mb-2"></i>
+                    <div className="font-bold text-xs text-slate-700">Raw DOM Data</div>
+                    <div className="text-[10px] text-slate-500 mt-1">T+1 to T+45 Horizons</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="avia-card p-4 bg-aviaWhite/80 border-aviaCoral space-y-2">
-              <div className="w-7 h-7 rounded-none bg-aviaPeachLight0/20 text-aviaCoral flex items-center justify-center font-bold text-xs">
-                2
+            <i className="fa-solid fa-chevron-down text-aviaCoral text-2xl opacity-80 z-10 bg-white rounded-full p-1 shadow-sm"></i>
+
+            {/* Step 2 */}
+            <div className="avia-card p-0 bg-white border-2 border-aviaCoral w-full shadow-lg relative group hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <div className="bg-aviaCoral/10 p-4 border-b border-aviaCoral/30 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-aviaCoral text-white flex items-center justify-center font-bold text-sm shadow-inner">2</div>
+                <div className="font-bold text-aviaCharcoal text-base">Normalization & Cryptographic Audit</div>
               </div>
-              <div className="font-bold text-aviaCharcoal text-sm">Normalization & Audit</div>
-              <p className="text-[11px] text-aviaMuted">
-                Fare decomposition (Base + Fuel + UDF + GST), modified Z-Score (3.2σ) outlier quarantine, and SHA-256 quote hash sealing.
-              </p>
+              <div className="p-5">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                  <div className="p-3 border border-slate-200 rounded-lg bg-slate-50 flex flex-col items-center justify-center">
+                    <div className="text-[10px] font-bold text-slate-500 mb-2 uppercase">Fare Decomposition</div>
+                    <div className="flex items-center gap-2 text-xs font-mono font-bold text-aviaCharcoal">
+                      <span className="text-emerald-600">Base</span> + <span className="text-orange-500">Fuel</span> + <span className="text-sky-500">UDF</span> + <span className="text-rose-500">GST</span>
+                    </div>
+                  </div>
+                  
+                  <div className="p-3 border border-amber-200 rounded-lg bg-amber-50 flex flex-col items-center justify-center">
+                    <div className="text-[10px] font-bold text-amber-600 mb-2 uppercase">Z-Score Quarantine</div>
+                    <div className="text-xs font-mono font-bold text-amber-800">
+                      |M<sub className="text-[8px]">i</sub>| &gt; 3.2&sigma; &rarr; Drop
+                    </div>
+                  </div>
+
+                  <div className="p-3 border border-indigo-200 rounded-lg bg-indigo-50 flex flex-col items-center justify-center">
+                    <div className="text-[10px] font-bold text-indigo-600 mb-2 uppercase">Provenance Seal</div>
+                    <div className="text-[9px] font-mono text-indigo-800 break-all leading-tight bg-white p-1 rounded border border-indigo-100">
+                      hash=SHA256(origin+dest+carrier+fare)
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="avia-card p-4 bg-aviaWhite/80 border-amber-500/40 space-y-2">
-              <div className="w-7 h-7 rounded-none bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs">
-                3
+            <i className="fa-solid fa-chevron-down text-amber-500 text-2xl opacity-80 z-10 bg-white rounded-full p-1 shadow-sm"></i>
+
+            {/* Step 3 */}
+            <div className="avia-card p-0 bg-white border-2 border-amber-400 w-full shadow-lg relative group hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <div className="bg-amber-100 p-4 border-b border-amber-200 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-amber-400 text-amber-900 flex items-center justify-center font-bold text-sm shadow-inner">3</div>
+                <div className="font-bold text-aviaCharcoal text-base">Statistical Engine (CPI Calibration)</div>
               </div>
-              <div className="font-bold text-aviaCharcoal text-sm">Statistical Engine</div>
-              <p className="text-[11px] text-aviaMuted">
-                Elementary Jevons geometric mean aggregation, chained Laspeyres basket weighting, and 7-horizon advance booking curves.
-              </p>
+              <div className="p-5">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+                  
+                  <div className="w-full text-center space-y-2">
+                    <div className="w-12 h-12 mx-auto rounded-full bg-slate-100 flex items-center justify-center text-xl text-slate-600 font-serif italic">∏</div>
+                    <div className="font-bold text-xs text-aviaCharcoal">Jevons Index</div>
+                    <div className="text-[10px] text-aviaMuted">Unweighted Geometric Mean of route strata</div>
+                  </div>
+                  
+                  <i className="fa-solid fa-plus text-amber-500 text-lg"></i>
+                  
+                  <div className="w-full text-center space-y-2">
+                    <div className="w-12 h-12 mx-auto rounded-full bg-slate-100 flex items-center justify-center text-xl text-slate-600 font-serif italic">∑</div>
+                    <div className="font-bold text-xs text-aviaCharcoal">Laspeyres Roll-up</div>
+                    <div className="text-[10px] text-aviaMuted">DGCA Market Share Weighting applied</div>
+                  </div>
+
+                  <i className="fa-solid fa-equals text-amber-500 text-lg"></i>
+
+                  <div className="w-full text-center space-y-2">
+                    <div className="w-12 h-12 mx-auto rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center font-bold text-amber-700">APIx</div>
+                    <div className="font-bold text-xs text-aviaCharcoal">Final Index</div>
+                    <div className="text-[10px] text-aviaMuted">National Inflation Proxy</div>
+                  </div>
+
+                </div>
+              </div>
             </div>
 
-            <div className="avia-card p-4 bg-aviaWhite/80 border-emerald-500/40 space-y-2">
-              <div className="w-7 h-7 rounded-none bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">
-                4
+            <i className="fa-solid fa-chevron-down text-orange-500 text-2xl opacity-80 z-10 bg-white rounded-full p-1 shadow-sm"></i>
+
+            {/* Step 4 */}
+            <div className="avia-card p-0 bg-white border-2 border-orange-500 w-full shadow-lg relative group hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+              <div className="bg-orange-100 p-4 border-b border-orange-200 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-sm shadow-inner">4</div>
+                <div className="font-bold text-aviaCharcoal text-base">API Delivery & Policy Dashboard</div>
               </div>
-              <div className="font-bold text-aviaCharcoal text-sm">Policy Augmentation</div>
-              <p className="text-[11px] text-aviaMuted">
-                Real-time CPI augmentation, factor waterfall decomposition, REST API endpoints, and live SSE event stream.
-              </p>
+              <div className="p-5">
+                <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-4 text-center">
+                  <div className="p-4 border border-slate-200 rounded-lg bg-slate-50 w-full relative">
+                    <i className="fa-solid fa-database text-2xl text-slate-600 mb-2"></i>
+                    <div className="font-bold text-xs text-slate-700">SQLite Telemetry DB</div>
+                    <span className="absolute -top-2 -right-2 bg-emerald-100 text-emerald-700 text-[9px] font-bold px-2 py-0.5 rounded-full border border-emerald-300">Live</span>
+                  </div>
+                  
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="flex items-center gap-2 bg-slate-800 text-white text-[10px] font-mono px-3 py-1 rounded-full whitespace-nowrap">
+                      <span>GET /api/kpis</span> <i className="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div className="flex items-center gap-2 bg-orange-500 text-white text-[10px] font-mono px-3 py-1 rounded-full whitespace-nowrap">
+                      <span>SSE Stream</span> <i className="fa-solid fa-bolt"></i>
+                    </div>
+                  </div>
+
+                  <div className="p-4 border-2 border-orange-300 rounded-lg bg-orange-50 w-full">
+                    <i className="fa-brands fa-react text-2xl text-orange-500 mb-2"></i>
+                    <div className="font-bold text-xs text-orange-900">React Frontend Dashboard</div>
+                    <div className="text-[10px] text-orange-700 mt-1">Heatmaps • Time Series • Lineage</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>

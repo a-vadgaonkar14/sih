@@ -13,19 +13,17 @@ export default function MobileNav() {
     { id: 'overview', label: 'Overview', icon: 'fa-chart-pie' },
     { id: 'routes', label: 'Routes', icon: 'fa-route' },
     { id: 'explain', label: 'Explain', icon: 'fa-chart-waterfall' },
-    { id: 'trust', label: 'Trust', icon: 'fa-shield-halved' },
-    { id: 'demo', label: 'Demo', icon: 'fa-graduation-cap', isDemo: true }
+    { id: 'trust', label: 'Trust', icon: 'fa-shield-halved' }
   ];
 
   const allViews = [
     { id: 'landing', label: 'Product Vision & Hero', icon: 'fa-house', color: 'text-aviaCoral' },
     { id: 'overview', label: 'Executive Overview (Judge Screen)', icon: 'fa-chart-pie', color: 'text-aviaCoral' },
     { id: 'routes', label: 'Route Analytics & Heatmap', icon: 'fa-route', color: 'text-aviaCoral' },
-    { id: 'explain', label: 'APIx Explain (Waterfall)', icon: 'fa-chart-waterfall', color: 'text-amber-400' },
+    { id: 'explain', label: 'APIx Explain (Waterfall)', icon: 'fa-chart-bar', color: 'text-amber-400' },
     { id: 'trust', label: 'Trust Center & Lineage', icon: 'fa-shield-halved', color: 'text-cyan-400' },
     { id: 'operations', label: 'Operations & Scraper SRE', icon: 'fa-microchip', color: 'text-rose-400' },
-    { id: 'methodology', label: 'Methodology & Standards', icon: 'fa-book-bookmark', color: 'text-aviaCoral' },
-    { id: 'demo', label: 'SIH Guided Demo Mode', icon: 'fa-graduation-cap', color: 'text-yellow-400', isSpecial: true }
+    { id: 'methodology', label: 'Methodology & Standards', icon: 'fa-book-bookmark', color: 'text-aviaCoral' }
   ];
 
   return (
@@ -79,9 +77,9 @@ export default function MobileNav() {
                 }}
                 className={`w-full p-3 rounded-none border text-left font-semibold flex items-center gap-3 transition-all ${
                   v.isSpecial
-                    ? 'bg-gradient-to-r from-sky-950 to-indigo-950 border-aviaCoral/40 text-aviaCoral font-bold'
+                    ? 'bg-gradient-to-r from-orange-950 to-red-950 border-aviaCoral/40 text-aviaCoral font-bold'
                     : activeView === v.id
-                    ? 'bg-sky-950/80 border-aviaCoral/60 text-aviaCoral'
+                    ? 'bg-orange-950/80 border-aviaCoral/60 text-aviaCoral'
                     : 'bg-aviaWhite border-aviaPeachSoft text-aviaCharcoal hover:border-aviaPeachSoft'
                 }`}
               >

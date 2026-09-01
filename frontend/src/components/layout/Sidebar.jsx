@@ -13,11 +13,10 @@ export default function Sidebar() {
     { id: 'landing', label: 'Product Vision & Hero', icon: 'fa-house' },
     { id: 'overview', label: 'Executive Overview', icon: 'fa-chart-pie', badge: 'LIVE' },
     { id: 'routes', label: 'Route Analytics & Heatmap', icon: 'fa-route' },
-    { id: 'explain', label: 'APIx Explain (Waterfall)', icon: 'fa-chart-waterfall' },
+    { id: 'explain', label: 'APIx Explain (Waterfall)', icon: 'fa-chart-bar' },
     { id: 'trust', label: 'Trust Center & Audit', icon: 'fa-shield-halved' },
     { id: 'operations', label: 'Operations & SRE Health', icon: 'fa-microchip' },
-    { id: 'methodology', label: 'Methodology & Standards', icon: 'fa-book-bookmark' },
-    { id: 'demo', label: 'SIH Judge Demo Mode', icon: 'fa-graduation-cap' }
+    { id: 'methodology', label: 'Methodology & Standards', icon: 'fa-book-bookmark' }
   ];
 
   return (

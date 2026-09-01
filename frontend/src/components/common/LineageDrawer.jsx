@@ -127,7 +127,7 @@ export default function LineageDrawer() {
           ) : lineageData ? (
             <>
               {/* SHA-256 Provenance Seal */}
-              <div className="avia-card p-4 bg-gradient-to-r from-sky-50/80 to-indigo-50/50 border border-aviaCoral/40 space-y-2">
+              <div className="avia-card p-4 bg-gradient-to-r from-amber-50/80 to-orange-50/50 border border-aviaCoral/40 space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-bold text-aviaCoralDeep uppercase tracking-wider flex items-center gap-1.5">
                     <i className="fa-solid fa-shield-halved text-cyan-600"></i>
@@ -206,7 +206,7 @@ export default function LineageDrawer() {
                       </div>
                       <div className="p-2 bg-white border border-aviaPeachSoft">
                         <div className="text-aviaMuted text-[10px]">UDF / PSF</div>
-                        <div className="font-bold text-sky-700">₹{taxSplit.taxes_udf_psf?.toLocaleString() || '0'}</div>
+                        <div className="font-bold text-orange-700">₹{taxSplit.taxes_udf_psf?.toLocaleString() || '0'}</div>
                       </div>
                       <div className="p-2 bg-white border border-aviaPeachSoft">
                         <div className="text-aviaMuted text-[10px]">GST (5%)</div>

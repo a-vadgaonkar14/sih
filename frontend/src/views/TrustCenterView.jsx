@@ -35,7 +35,7 @@ export default function TrustCenterView() {
     <div className="space-y-6 pb-12 animate-in fade-in duration-300">
       
       {/* Header Banner */}
-      <div className="avia-card p-6 bg-gradient-to-r from-cyan-50/80 via-sky-50/60 to-white border border-aviaPeachSoft">
+      <div className="avia-card p-6 bg-gradient-to-r from-rose-50/80 via-amber-50/60 to-white border border-aviaPeachSoft">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <h2 className="text-lg sm:text-xl font-extrabold text-aviaCharcoal font-heading flex items-center gap-2">

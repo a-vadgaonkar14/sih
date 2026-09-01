@@ -58,7 +58,7 @@ export default function PricingHeatmap({ heatmapData, observations = [], onSelec
     if (!fare) return '';
     if (fare > 10000) return 'bg-rose-100 text-rose-900 border-rose-400 hover:bg-rose-200 font-black';
     if (fare > 8000) return 'bg-amber-100 text-amber-900 border-amber-400 hover:bg-amber-200 font-bold';
-    if (fare > 6000) return 'bg-sky-100 text-sky-900 border-sky-300 hover:bg-sky-200 font-semibold';
+    if (fare > 6000) return 'bg-orange-100 text-orange-900 border-orange-300 hover:bg-orange-200 font-semibold';
     return 'bg-emerald-100 text-emerald-900 border-emerald-400 hover:bg-emerald-200 font-semibold';
   };
 

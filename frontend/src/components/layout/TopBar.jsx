@@ -34,7 +34,7 @@ export default function TopBar() {
             onClick={() => setActiveView('overview')}
             className="flex items-center gap-3 group text-left shrink-0"
           >
-            <img src="/avia-logo.jpg" alt="AVIA Logo" className="h-10 w-auto object-contain" />
+            <img src="/assets/avia-logo.png" alt="AVIA Logo" className="h-10 w-auto object-contain" />
           </button>
 
           {/* Live Data Status / Demo Badge */}
@@ -68,44 +68,6 @@ export default function TopBar() {
         {/* Controls (Right Side) */}
         <div className="flex items-center gap-3">
           
-          <div className="hidden xl:flex items-center gap-3 text-xs">
-            {/* Collection Window Date Selector */}
-            <div className="flex items-center gap-1.5 bg-aviaWhite border border-aviaPeachSoft rounded-none px-3 py-1.5 text-aviaCharcoal shadow-xs cursor-pointer hover:border-aviaCoral transition-colors">
-              <i className="fa-regular fa-calendar text-aviaCoral"></i>
-              <span className="font-bold text-aviaMuted">Window</span>
-              <span className="font-mono text-aviaCharcoal font-bold ml-1">Live 7-Day Matrix</span>
-              <i className="fa-solid fa-chevron-down text-[10px] text-aviaMuted ml-1"></i>
-            </div>
-
-            {/* Granularity Selector */}
-            <div className="flex items-center gap-1.5 bg-aviaWhite border border-aviaPeachSoft rounded-none px-3 py-1.5 text-aviaCharcoal shadow-xs hover:border-aviaCoral transition-colors">
-              <i className="fa-solid fa-chart-simple text-aviaCoral"></i>
-              <span className="font-bold text-aviaMuted">Granularity</span>
-              <select
-                value={filters.granularity}
-                onChange={(e) => updateFilter('granularity', e.target.value)}
-                className="bg-transparent text-aviaCharcoal font-bold cursor-pointer text-xs outline-none ml-1 appearance-none pr-4"
-                style={{ backgroundImage: 'url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236F625D%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', backgroundSize: '8px auto' }}
-              >
-                <option value="daily" className="bg-aviaWhite">Daily</option>
-                <option value="weekly" className="bg-aviaWhite">Weekly</option>
-                <option value="monthly" className="bg-aviaWhite">Monthly</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Global Search Input */}
-          <div className="relative hidden lg:block w-48 xl:w-56">
-            <i className="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-aviaMuted text-xs"></i>
-            <input
-              type="text"
-              value={filters.searchQuery}
-              onChange={(e) => updateFilter('searchQuery', e.target.value)}
-              placeholder="Search Route (BOM-DEL)..."
-              className="w-full pl-8 pr-3 py-1.5 rounded-none bg-aviaWhite border border-aviaPeachSoft text-xs text-aviaCharcoal placeholder-slate-400 outline-none focus:border-aviaCoral transition-colors shadow-xs"
-            />
-          </div>
-
           {/* Export Snapshot Button */}
           <button
             onClick={() => setIsExportModalOpen(true)}

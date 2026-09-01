@@ -37,7 +37,7 @@ export default function ApixTimeSeriesChart({ series = [], timeframe = 30, onTim
   const maxVal = Math.ceil(Math.max(...allValues) + 2);
   const valRange = maxVal - minVal || 1;
 
-  const getX = (idx) => padding.left + (idx / (series.length - 1)) * graphWidth;
+  const getX = (idx) => series.length > 1 ? padding.left + (idx / (series.length - 1)) * graphWidth : padding.left + graphWidth / 2;
   const getY = (val) => padding.top + graphHeight - ((val - minVal) / valRange) * graphHeight;
 
   // Paths
@@ -73,7 +73,7 @@ export default function ApixTimeSeriesChart({ series = [], timeframe = 30, onTim
           <button
             onClick={() => toggleLine('apix')}
             className={`flex items-center gap-1.5 px-2 py-1 rounded-none transition-all ${
-              visibleLines.apix ? 'bg-sky-950/80 text-aviaCoral border border-aviaCoral/40' : 'text-aviaMuted opacity-60'
+              visibleLines.apix ? 'bg-orange-950/80 text-aviaCoral border border-aviaCoral/40' : 'text-aviaMuted opacity-60'
             }`}
           >
             <span className="w-2.5 h-0.5 bg-aviaCoral rounded-full"></span>

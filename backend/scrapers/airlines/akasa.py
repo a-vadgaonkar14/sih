@@ -9,6 +9,7 @@ class AkasaAirScraper(GoogleFlightsScraper):
 
     async def search(self, origin: str, destination: str, travel_date: str, lead_days: int) -> List[FlightObservation]:
         """Live web scraping for Akasa Air flights without hardcoded datasets."""
+        
         return await super().search(
             origin=origin,
             destination=destination,

@@ -114,7 +114,7 @@ export default function OperationsMonitorView() {
     <div className="space-y-6 pb-12 animate-in fade-in duration-300">
       
       {/* Header Banner */}
-      <div className="avia-card p-6 bg-gradient-to-r from-rose-50/80 via-sky-50/60 to-white border border-aviaPeachSoft">
+      <div className="avia-card p-6 bg-gradient-to-r from-rose-50/80 via-amber-50/60 to-white border border-aviaPeachSoft">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <h2 className="text-lg sm:text-xl font-extrabold text-aviaCharcoal font-heading flex items-center gap-2">
@@ -269,7 +269,7 @@ export default function OperationsMonitorView() {
                 </div>
                 <div className="p-2 bg-aviaPeachLight/40 border border-aviaPeachSoft text-center">
                   <div className="text-[10px] text-aviaMuted">Lead Time</div>
-                  <div className="font-bold text-sky-700">T+{scrapeStatus.current_lead_time || '--'}</div>
+                  <div className="font-bold text-orange-700">T+{scrapeStatus.current_lead_time || '--'}</div>
                 </div>
                 <div className="p-2 bg-aviaPeachLight/40 border border-aviaPeachSoft text-center">
                   <div className="text-[10px] text-aviaMuted">Valid Flights</div>
@@ -370,7 +370,7 @@ export default function OperationsMonitorView() {
             <tbody className="divide-y divide-aviaPeachSoft/60 font-sans">
               {sources.map((s) => {
                 const carrierBadgeStyles = {
-                  '6E': 'bg-sky-50 text-sky-800 border-sky-300',
+                  '6E': 'bg-orange-50 text-orange-800 border-orange-300',
                   'AI': 'bg-rose-50 text-rose-900 border-rose-300',
                   'IX': 'bg-amber-50 text-amber-900 border-amber-300',
                   'QP': 'bg-orange-50 text-orange-900 border-orange-300',
@@ -441,7 +441,7 @@ export default function OperationsMonitorView() {
             </div>
           ) : (
             logs.map((entry, idx) => {
-              let levelColor = 'text-sky-400';
+              let levelColor = 'text-orange-400';
               if (entry.level === 'error') levelColor = 'text-rose-400';
               else if (entry.level === 'warning') levelColor = 'text-amber-400';
               else if (entry.level === 'success') levelColor = 'text-emerald-400';

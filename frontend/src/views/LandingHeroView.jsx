@@ -27,18 +27,18 @@ export default function LandingHeroView() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-aviaCharcoal tracking-tight leading-[1.15] font-heading">
-          Policy-Grade <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600">Real-Time Airfare</span> Price Index for India
+          Policy-Grade <span className="text-transparent bg-clip-text bg-gradient-to-r from-aviaCoral via-orange-500 to-red-600">Real-Time Airfare</span> Price Index for India
         </h1>
 
         <p className="text-sm sm:text-base text-aviaCharcoal max-w-2xl mx-auto leading-relaxed">
-          AVIA (Airfare Variation & Index Analytics) bridges the 30-day statistical reporting lag by capturing high-frequency airfare observations across India's top 5 domestic carriers, high-density trunk corridors, and direct airline engines with complete cryptographic lineage.
+          <strong className="text-aviaCoralDeep">AVIA (Aviation Variation & Inflation Analytics)</strong> is an automated economic surveillance platform. It bridges the 30-day statistical reporting lag of traditional methods by scraping and aggregating daily high-frequency airfares across India's domestic carriers to create a mathematically sound inflation index.
         </p>
 
         {/* Primary Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <button
             onClick={() => setActiveView('overview')}
-            className="py-3 px-6 rounded-none bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-500 hover:to-blue-500 text-white text-sm font-bold shadow-lg shadow-sky-500/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
+            className="py-3 px-6 rounded-none bg-gradient-to-r from-aviaCoral to-red-600 hover:from-orange-500 hover:to-aviaCoralDeep text-white text-sm font-bold shadow-lg shadow-aviaCoral/30 transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
           >
             <span>Launch Executive Dashboard</span>
             <i className="fa-solid fa-arrow-right text-xs"></i>
@@ -74,7 +74,7 @@ export default function LandingHeroView() {
       {/* 3 Core Value Pillars */}
       <section className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-6">
         
-        <div className="avia-card p-6 space-y-3 border-t-2 border-t-sky-500">
+        <div className="avia-card p-6 space-y-3 border-t-2 border-t-aviaCoral">
           <div className="w-10 h-10 rounded-none bg-aviaPeachSoft text-aviaCoralDeep border border-aviaCoral flex items-center justify-center text-lg shadow-sm">
             <i className="fa-solid fa-bolt"></i>
           </div>
@@ -86,7 +86,7 @@ export default function LandingHeroView() {
           </p>
         </div>
 
-        <div className="avia-card p-6 space-y-3 border-t-2 border-t-indigo-500">
+        <div className="avia-card p-6 space-y-3 border-t-2 border-t-amber-500">
           <div className="w-10 h-10 rounded-none bg-aviaPeachSoft text-aviaCoralDeep border border-aviaCoral flex items-center justify-center text-lg shadow-sm">
             <i className="fa-solid fa-fingerprint"></i>
           </div>
@@ -98,15 +98,15 @@ export default function LandingHeroView() {
           </p>
         </div>
 
-        <div className="avia-card p-6 space-y-3 border-t-2 border-t-emerald-500">
-          <div className="w-10 h-10 rounded-none bg-emerald-100 text-emerald-700 border border-emerald-300 flex items-center justify-center text-lg shadow-sm">
-            <i className="fa-solid fa-shield-halved"></i>
+        <div className="avia-card p-6 space-y-3 border-t-2 border-t-orange-600">
+          <div className="w-10 h-10 rounded-none bg-aviaPeachSoft text-aviaCoralDeep border border-aviaCoral flex items-center justify-center text-lg shadow-sm">
+            <i className="fa-solid fa-scale-balanced"></i>
           </div>
           <h3 className="text-base font-bold text-aviaCharcoal font-heading">
-            ILO CPI Standards & Capacity Isolation
+            ILO CPI Standards & DGCA Weighting
           </h3>
           <p className="text-xs text-aviaMuted leading-relaxed">
-            Strictly compliant with UN COICOP Division 07.3.3 standards: isolates capacity-exhausted ("Sold Out") flights and applies Modified Z-Score outlier quarantine (&gt;3.2σ) to protect policy integrity.
+            Complies with rigorous ILO and MoSPI guidelines. Features median absolute deviation (MAD) filtering to quarantine flash sales, and DGCA market-share weighting for realistic inflation calibration.
           </p>
         </div>
 

@@ -55,7 +55,7 @@ export default function APIxExplainView() {
     <div className="space-y-6 pb-12 animate-in fade-in duration-300">
       
       {/* Header Banner */}
-      <div className="avia-card p-6 bg-gradient-to-r from-amber-50/80 via-sky-50/60 to-white border border-aviaPeachSoft mb-6">
+      <div className="avia-card p-6 bg-gradient-to-r from-amber-50/80 via-amber-50/60 to-white border border-aviaPeachSoft mb-6">
         <div className="flex flex-wrap items-end justify-between gap-4 border-b border-aviaPeachSoft pb-4">
           <div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-aviaCharcoal font-heading">

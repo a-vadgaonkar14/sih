@@ -62,11 +62,11 @@ export default function ExportModal() {
             <div className="grid grid-cols-2 gap-3">
               <button
                 onClick={() => setFormat('csv')}
-                className={`p-3 rounded-none border text-left flex items-center gap-3 transition-all ${
-                  format === 'csv'
-                    ? 'bg-sky-950/80 border-aviaCoral text-aviaCharcoal font-bold shadow-sm'
-                    : 'bg-aviaWhite border-aviaPeachSoft text-aviaMuted hover:border-aviaPeachSoft'
-                }`}
+                  className={`flex flex-col items-center justify-center p-4 border-2 transition-all group cursor-pointer ${
+                    format === 'csv'
+                    ? 'bg-aviaPeachSoft/80 border-aviaCoral text-aviaCharcoal font-bold shadow-sm'
+                    : 'bg-aviaWhite border-aviaPeachSoft hover:border-aviaCoral/40 hover:bg-aviaPeachLight'
+                  }`}
               >
                 <i className="fa-solid fa-file-csv text-emerald-400 text-lg"></i>
                 <div>
@@ -77,11 +77,11 @@ export default function ExportModal() {
 
               <button
                 onClick={() => setFormat('json')}
-                className={`p-3 rounded-none border text-left flex items-center gap-3 transition-all ${
-                  format === 'json'
-                    ? 'bg-sky-950/80 border-aviaCoral text-aviaCharcoal font-bold shadow-sm'
-                    : 'bg-aviaWhite border-aviaPeachSoft text-aviaMuted hover:border-aviaPeachSoft'
-                }`}
+                  className={`flex flex-col items-center justify-center p-4 border-2 transition-all group cursor-pointer ${
+                    format === 'json'
+                    ? 'bg-aviaPeachSoft/80 border-aviaCoral text-aviaCharcoal font-bold shadow-sm'
+                    : 'bg-aviaWhite border-aviaPeachSoft hover:border-aviaCoral/40 hover:bg-aviaPeachLight'
+                  }`}
               >
                 <i className="fa-solid fa-file-code text-amber-400 text-lg"></i>
                 <div>
@@ -115,7 +115,7 @@ export default function ExportModal() {
           <button
             onClick={handleDownload}
             disabled={downloading}
-            className="py-2 px-5 rounded-none bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-aviaCharcoal text-xs font-bold shadow-lg shadow-sky-500/20 transition-all flex items-center gap-2"
+            className="py-2 px-5 rounded-none bg-gradient-to-r from-aviaCoral to-orange-500 hover:from-orange-500 hover:to-aviaCoralDeep text-white text-xs font-bold shadow-lg shadow-aviaCoral/20 transition-all flex items-center gap-2"
           >
             <i className={`fa-solid ${downloading ? 'fa-spinner fa-spin' : 'fa-download'}`}></i>
             <span>{downloading ? 'Preparing Download...' : `Download ${format.toUpperCase()}`}</span>

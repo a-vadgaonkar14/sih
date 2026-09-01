@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
 import PricingHeatmap from '../components/charts/PricingHeatmap';
 import CarrierSpreadChart from '../components/charts/CarrierSpreadChart';
-import GlobalFilterBar from '../components/common/GlobalFilterBar';
 import * as api from '../api/client';
 
 export default function RouteAnalyticsView() {
@@ -42,12 +41,9 @@ export default function RouteAnalyticsView() {
 
   return (
     <div className="space-y-6 pb-12 animate-in fade-in duration-300">
-      
-      {/* Filter Bar */}
-      <GlobalFilterBar />
 
       {/* Header Banner with Real Dynamic KPIs */}
-      <div className="avia-card p-6 bg-gradient-to-r from-sky-50/90 via-white to-amber-50/40 border border-aviaPeachSoft">
+      <div className="avia-card p-6 bg-gradient-to-r from-amber-50/90 via-white to-amber-50/40 border border-aviaPeachSoft">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <h2 className="text-lg sm:text-xl font-extrabold text-aviaCharcoal font-heading flex items-center gap-2">
@@ -93,7 +89,7 @@ export default function RouteAnalyticsView() {
               <span className="text-aviaMuted font-semibold">&lt; ₹6,000 (Base/Promotional)</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-none bg-sky-100 border border-sky-300"></span>
+              <span className="w-3 h-3 rounded-none bg-orange-100 border border-orange-300"></span>
               <span className="text-aviaMuted font-semibold">₹6,000 - ₹8,000 (Standard)</span>
             </div>
             <div className="flex items-center gap-1.5">

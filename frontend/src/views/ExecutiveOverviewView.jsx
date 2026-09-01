@@ -884,51 +884,6 @@ export default function ExecutiveOverviewView() {
         )}
       </div>
 
-{/* ============================================================ */}
-      {/* 05 - DATA SOURCES & SYSTEM HEALTH                            */}
-      {/* ============================================================ */}
-      <div className="pt-12 pb-4 border-b border-aviaPeachSoft/50 mb-6">
-        <div className="text-[10px] font-bold text-aviaMuted uppercase tracking-widest mb-1">06 — Data Sources & System Health</div>
-        <h2 className="text-2xl font-extrabold text-aviaCharcoal font-heading">Pipeline Health & Institutional Feeds</h2>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        {datasetStatus === 'AWAITING_FRESH_DATA' ? (
-          <div className="col-span-full py-12 text-center bg-aviaWhite border border-aviaPeachSoft shadow-sm">
-             <i className="fa-solid fa-server text-4xl text-aviaMuted mb-3 block"></i>
-             <p className="font-bold text-aviaCharcoal text-sm">System Sensors Offline</p>
-             <p className="text-xs text-aviaMuted">Scraper engine is waiting for first dispatch.</p>
-          </div>
-        ) : (
-          <>
-            {/* System Health KPIs */}
-            <div className="col-span-full grid grid-cols-1 md:grid-cols-2 gap-4">
-              <KpiCard
-                title="Data Freshness SLA"
-                subtitle="Network Polling Latency"
-                value={`< ${kpis?.data_freshness_minutes || 2} min`}
-                deltaText={`${totalCount.toLocaleString()} Verified Quotes`}
-                deltaType="good"
-                sparklineData={kpis?.sparklines?.freshness || [10, 8, 7, 5, 4, 3, 2]}
-                sparklineColor="#f59e0b"
-                footnote="All Scheduled Airlines"
-                icon="fa-clock"
-              />
-              <KpiCard
-                title="Lineage Hash Audit"
-                subtitle="SHA-256 Validated Evidence"
-                value={`${overviewData?.trust_summary?.audit_coverage_percent || 100}%`}
-                deltaText="Zero DOM Drift"
-                deltaType="good"
-                sparklineData={[100, 100, 100, 100, 100, 100, 100]}
-                sparklineColor="#10b981"
-                footnote="Verified against DGCA standards"
-                icon="fa-shield-halved"
-              />
-            </div>
-          </>
-        )}
-      </div>
 
       {/* Institutional Feed Live JSON Modal */}
       {feedModal.open && (

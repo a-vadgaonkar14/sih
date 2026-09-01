@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: airfare-price-index-cpi
+    runtime: python
+    buildCommand: pip install -r requirements.txt && playwright install chromium --with-deps
+    startCommand: gunicorn --workers=2 --threads=4 --timeout=120 --bind=0.0.0.0:$PORT backend.app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: PORT
+        value: "10000"
